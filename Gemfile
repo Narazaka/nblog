@@ -13,11 +13,6 @@ gem 'redcarpet'
 gem 'kaminari'
 gem 'acts-as-taggable-on'
 gem 'rails_config'
-#gem 'ancestry'
-#gem 'devise'
-#gem 'carrierwave'
-#gem 'activeadmin', github: 'gregbell/active_admin'
-#gem 'friendly_id', '~> 5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
