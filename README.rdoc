@@ -1,28 +1,97 @@
-== README
+= nblog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blog on Ruby on Rails
 
-Things you may want to cover:
+== コレは何か
 
-* Ruby version
+Ruby on Railsで作ったブログです。
 
-* System dependencies
+以下のような特徴があります。
 
-* Configuration
+* シングルユーザー
+* Markdown書式(redcarpet)
+* カテゴリなしのタグ付け分類
+* 日付機能
+  * 表示開始日時
+  * 表示終了日時
+  * 更新扱い日時
+  * これらで予約投稿っぽいことも可能
+* コメント機能
+  * 管理者宛コメント
+  * 管理者承認(デフォルト承認ありなし設定可能)
+* 設定はYAMLで簡単(!)
+* IE8以下非対応(HTML5採用・JavaScriptの事情により)
+* フラットデザイン風味
 
-* Database creation
+ブログにありがちな機能の中でないのは次のあたりです。
 
-* Database initialization
+* トラックバック機能なし
+* 画像等投稿機能なし
+* RSSなし
+* サイドバー？いらないYO！
 
-* How to run the test suite
+== 初期設定
 
-* Services (job queues, cache servers, search engines, etc.)
+=== 基本設定
 
-* Deployment instructions
+/config/settings.ymlで全ての設定をします。
 
-* ...
+title:: ブログのタイトル
+articles_per_page:: 記事(一覧)表示で1ページに表示する記事数(正整数値)
+list_per_page:: リスト(記事名)表示で1ページに表示する記事数(正整数値)
+auto_allow_show_comments:: デフォルトでコメントを承認状態にする(true/false)
+i18n.default_locale:: 使う言語ファイル("ja"等)
+markdown:: 記事で使うMarkdownのオプション(https://github.com/vmg/redcarpet を参照)
 
+=== 管理者ユーザーパスワード設定
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+ルートディレクトリで
+
+rake admin_user:set[パスワード]
+
+を実行して管理者パスワードを設定します。
+
+== 起動
+
+ごく普通のRailsアプリケーションと同様に起動します。
+
+=== データベース生成
+
+rake db:migrate RAILS_ENV=production
+
+=== アセットプリコンパイル
+
+rake assets:precompile
+
+=== 環境変数設定
+
+set TZ=Asia/Tokyo
+
+set SECRET_KEY_BASE=...
+
+=== 起動
+
+rails server -e production
+
+== 必要ライブラリ
+
+slim-rails:: HTML生成
+stylus:: CSS生成
+coffee-rails:: JavaScript生成
+jquery-rails:: jQuery
+rails-i18n:: 国際化機能
+redcarpet:: Markdown
+kaminari:: ページャ
+acts-as-taggable-on:: タグ機能
+rails_config:: settings.yml提供
+bcrypt:: パスワード関連
+
+またstylusのコンパイルのためにnode.jsとそのライブラリstylusとnibが必要です。
+
+== 開発環境(参考)
+
+Windows 7 Professional 64bit / ruby 2.0.0p247 (2013-06-27) [x64-mingw32]
+
+== ライセンス
+
+(C) 2014 Narazaka : Licensed under {The MIT License}[http://narazaka.net/license/MIT?2014]
