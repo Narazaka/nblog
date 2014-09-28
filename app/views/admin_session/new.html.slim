@@ -1,0 +1,5 @@
+article
+	= form_tag admin_session_login_path do
+		= label_tag :password, I18n.t('form.label.password')
+		= password_field_tag :password
+		= submit_tag I18n.t('form.label.login')

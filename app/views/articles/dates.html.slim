@@ -1,0 +1,31 @@
+article.dates
+	nav
+		ul.years
+			- dates = @articles.select('case when updated_at_display is not ? then updated_at_display else updated_at end as updated_at_display').map do |article| article.updated_at_display end
+			- years = (dates.map do |date| date.year end).uniq
+			- years.each do |year|
+				- dates_in_year = dates.select do |date| date.year == year end
+				li
+					p.year
+						= link_to :action => :list, :date => year.to_s
+							span.date = "#{year}#{I18n.t('datetime.prompts.year')}"
+							span.count = dates_in_year.length
+					ul.months
+						- months = (dates_in_year.map do |date| date.month end).uniq
+						- months.each do |month|
+							- dates_in_month = dates_in_year.select do |date| date.month == month end
+							li
+								p.month
+									= link_to :action => :list, :date => year.to_s + '-' + month.to_s
+										span.date = "#{month}#{I18n.t('datetime.prompts.month')}"
+										span.count = dates_in_month.length
+								ul.days
+									- days = (dates_in_month.map do |date| date.day end).uniq
+									- days.each do |day|
+										- elements_in_day = dates_in_month.select do |date| date.day == day end
+										li
+											p.day
+												= link_to :action => :list, :date => year.to_s + '-' + month.to_s + '-' + day.to_s
+
+													span.date = "#{day}#{I18n.t('datetime.prompts.day')}"
+													span.count = elements_in_day.length

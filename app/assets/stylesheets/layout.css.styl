@@ -1,0 +1,63 @@
+@import 'nib'
+@import 'global'
+
+global-reset()
+
+html
+	font-family "Hiragino Kaku Gothic ProN", Meiryo, Tahoma, sans-serif
+	color #111
+
+body
+	.alert
+		padding 1em
+		&.alert-error
+			color #fff
+			background #f00
+		&.alert-info
+			color #fff
+			background #393
+	&> header
+		padding 1em
+		h1
+			font-size xx-large
+			color #36f
+			a
+				a-normal-stable()
+			small
+				font-size smaller
+				padding 1em
+	&> nav
+		&.navbar
+			ul
+				background #36f
+				li
+					display inline-block
+					&:hover
+						background #69f
+					a
+						display block
+						padding 1em
+						a-white-stable()
+		.pagination
+			margin 1em auto
+			text-align center
+			display table
+			border-collapse collapse
+			span
+				display table-cell
+				border 1px solid #ccc
+				&.current, &.gap
+					padding 1em
+				a
+					padding 1em
+					display block
+					a-normal()
+		&.bottom
+			padding 1em
+			text-align center
+	&> article
+		padding 1em
+	&> footer
+		border-top 1px solid #36f
+		padding 1em
+		text-align center

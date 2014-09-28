@@ -1,0 +1,7 @@
+ul.tags
+	- tag_cloud(article.tag_counts_on(:tags), []) do |tag, css_class|
+		li
+			- action = params[:action] == 'article' ? :list : params[:action]
+			= link_to :action => action, :tag => tag.name, :date => params[:date] do
+				span.name = tag.name
+				span.count = tag.taggings_count

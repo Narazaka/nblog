@@ -1,0 +1,30 @@
+- if comment.errors.any?
+	aside.alert.alert-error
+		ul
+		- comment.errors.full_messages.each do |message|
+			li = message
+article.comment
+	header
+		h1
+			= f.label :title, I18n.t('form.label.title')
+			= f.text_field :title
+			= f.label :name, I18n.t('form.label.name')
+			= f.text_field :name
+		p.url
+			= f.label :url, I18n.t('form.label.url')
+			= f.text_field :url
+		p.mail
+			= f.label :mail, I18n.t('form.label.mail')
+			= f.text_field :mail
+		p.for_only_master
+			= f.label :for_only_master, I18n.t('form.label.for_only_master')
+			= f.check_box :for_only_master
+	section
+		= f.label :contents, I18n.t('form.label.contents')
+		= f.text_area :contents
+	footer
+		p
+			= f.label :password, I18n.t('form.label.password')
+			= f.password_field :password
+		p
+			= f.submit

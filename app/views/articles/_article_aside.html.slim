@@ -1,0 +1,3 @@
+- if admin_session
+	= button_to I18n.t('title.edit'), {:action => :edit, :id => article.id}, {:method => :get}
+	= button_to I18n.t('title.destroy'), {:action => :destroy, :id => article.id}, {:method => :delete}

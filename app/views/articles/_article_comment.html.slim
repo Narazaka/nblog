@@ -1,0 +1,39 @@
+- if comment.errors.any?
+	aside.alert.alert-error
+		ul
+		- comment.errors.full_messages.each do |message|
+			li = message
+article.comment
+	- if not admin_session and comment.for_only_master
+		p = I18n.t('message.for_only_master')
+	- elsif not admin_session and not comment.allow_show
+		p = I18n.t('message.deny_show')
+	- else
+		header
+			h1
+				span.title = comment.title.empty? ? I18n.t('empty_title') : comment.title
+				span.name = comment.name
+			p.url
+				a href = comment.url
+					= comment.url
+			- if admin_session and not comment.mail.empty?
+				p.mail
+					a href = ('mailto:' + comment.mail)
+						= comment.mail
+		section
+			pre
+				= comment.contents
+		aside
+			= form_tag({:action => :comment_destroy, :cid => comment.id}, {:method => :delete}) do
+				= password_field :comment, :password
+				= submit_tag I18n.t('title.comment_destroy')
+			- if admin_session
+				- if comment.for_only_master
+					p = I18n.t('message.for_only_master')
+				- else
+					- if comment.allow_show
+						= button_to I18n.t('title.comment_update_deny_show_admin'), {:action => :comment_update_admin, :cid => comment.id, :comment => {:allow_show => false}}, {:method => :patch}
+					- else
+						p = I18n.t('message.deny_show')
+						= button_to I18n.t('title.comment_update_allow_show_admin'), {:action => :comment_update_admin, :cid => comment.id, :comment => {:allow_show => true}}, {:method => :patch}
+				= button_to I18n.t('title.comment_destroy_admin'), {:action => :comment_destroy_admin, :cid => comment.id}, {:method => :delete}

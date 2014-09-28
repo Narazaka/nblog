@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  for_only_master: false
+  allow_show: false
+  name: MyText
+  url: MyText
+  mail: MyText
+  contents: MyText
+  password_digest: MyString
+
+two:
+  title: MyText
+  for_only_master: false
+  allow_show: false
+  name: MyText
+  url: MyText
+  mail: MyText
+  contents: MyText
+  password_digest: MyString

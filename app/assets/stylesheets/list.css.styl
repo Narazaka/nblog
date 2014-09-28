@@ -1,0 +1,46 @@
+@import 'nib'
+@import 'global'
+
+body
+	article.list
+		font-size large
+		&> header
+			display inline-block
+			padding 0 1em
+			h1
+				font-size x-large
+				a
+					padding 0.2em
+					text-decoration none
+					a-black()
+			small
+				display inline-block
+				padding 0 1em
+				font-size small
+				vertical-align middle
+				a
+					padding 0.2em
+					text-decoration none
+					display inline-block
+				&.updated_at
+					a
+						a-black-stable()
+				&.created_at
+					color #06f
+				&.hide_at
+					color #f30
+		&> aside
+			display inline-block
+			padding 0 1em
+			*
+				display inline-block
+		&> footer
+			display inline-block
+			padding 0 1em
+			.tags
+				li
+					display inline-block
+					margin 0.2em
+					a
+						text-decoration none
+						a-normal-stable()

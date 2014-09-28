@@ -1,0 +1,65 @@
+@import 'nib'
+@import 'global'
+
+body
+	article.article
+		padding 1em
+		section-border(width)
+			border-style solid
+			border-color #ccc
+			border-width width
+		a
+			text-decoration none
+			a-normal()
+		&> header
+			padding 1em
+			color #fff
+			background #666
+			h1
+				font-size xx-large
+				a
+					padding 0.2em
+					text-decoration none
+					a-white-stable()
+			small
+				display inline-block
+				padding 0 1em
+				font-size small
+				vertical-align middle
+				a
+					padding 0.2em
+					text-decoration none
+					display inline-block
+				&.updated_at
+					a
+						a-white-stable()
+				&.created_at
+					color #ccf
+				&.hide_at
+					color #fcc
+				
+		&> section
+			section-border(0 1px)
+			padding 1em
+		&> aside
+			section-border(1px 1px 0 1px)
+			padding 1em
+			h1
+				font-size large
+				font-weight bold
+		&> footer
+			section-border(0 1px 1px 1px)
+			padding 1em
+			border-top 1px solid #ccc
+			.tags
+				a
+					a-normal-stable()
+				li
+					display inline-block
+					margin 0.2em
+.count
+	&:before
+		content "("
+	&:after
+		content ")"
+

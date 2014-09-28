@@ -1,0 +1,8 @@
+article.tags
+	nav
+		ul
+			- tag_cloud(@tags.order('count DESC'), []) do |tag, css_class|
+				li
+					= link_to :action => :articles, :tag => tag.name do
+						span.name = tag.name
+						span.count = tag.taggings_count

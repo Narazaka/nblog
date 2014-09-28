@@ -1,0 +1,36 @@
+- if article.errors.any?
+	aside.alert.alert-error
+		ul
+		- article.errors.full_messages.each do |message|
+			li = message
+header
+	h1
+		= f.label :title, I18n.t('form.label.title')
+		= f.text_field :title
+	p.created_at
+		= f.label :created_at_display, I18n.t('form.label.created_at_display')
+		= f.datetime_field :created_at_display
+		span.description = I18n.t('form.description.created_at_display')
+	p.updated_at
+		= f.label :updated_at_display, I18n.t('form.label.updated_at_display')
+		= f.datetime_field :updated_at_display
+		span.description = I18n.t('form.description.updated_at_display')
+	p.hide_at
+		= f.label :hide_at_display, I18n.t('form.label.hide_at_display')
+		= f.datetime_field :hide_at_display
+		span.description = I18n.t('form.description.hide_at_display')
+section
+	= f.label :contents, I18n.t('form.label.contents')
+	= f.text_area :contents
+footer
+	p
+		= f.label :tag_list, I18n.t('form.label.tag_list')
+		= f.text_field :tag_list
+	ul.tags
+		- tag_cloud(tags.order('count DESC'), []) do |tag, css_class|
+			li
+				span.name = tag.name
+				span.count = tag.taggings_count
+	p
+		= f.submit
+= javascript_include_tag 'article_form_tags'

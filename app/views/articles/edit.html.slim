@@ -1,0 +1,6 @@
+= form_for(@article, url: {:action => :update}) do |f|
+	article.article
+		= render partial: "article_form", locals: {article: @article, tags: @tags, f: f}
+nav.bottom
+	p
+		= link_to I18n.t('title.article'), :action => :article, :id => @article

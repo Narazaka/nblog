@@ -1,0 +1,73 @@
+ja:
+  time:
+    formats:
+      default: "%Y年%m月%d日 (%a) %H:%M"
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
+      truncate: "&hellip;"
+  title:
+    top: トップ
+    article: 記事
+    articles: 一覧
+    list: 記事名
+    tags: タグ
+    dates: 日付
+    login: ログイン
+    logout: ログアウト
+    new: 新しい記事を作成
+    edit: 記事を編集
+    destroy: 記事を削除
+    new_comment: コメントする
+    comment_update_admin: コメント更新
+    comment_update_allow_show_admin: コメントを表示する
+    comment_update_deny_show_admin: コメントを非表示にする
+    comment_destroy: コメント削除
+    comment_destroy_admin: コメント管理者削除
+  label:
+    tag: タグ
+    date: 日時
+  comment: コメント
+  empty_title: 無題
+  form:
+    label:
+      title: タイトル
+      created_at_display: 作成日時
+      updated_at_display: 更新日時
+      hide_at_display: 非表示日時
+      contents: 内容
+      tag_list: タグ
+      password: パスワード
+      login: ログイン
+      name: 名前
+      url: URL
+      mail: メールアドレス
+      for_only_master: 管理者のみに宛てる
+    description:
+      created_at_display: この日時以降に表示にする(任意)
+      updated_at_display: この日時に更新扱い(任意)
+      hide_at_display: この日時以降に非表示にする(任意)
+      tag_list: カンマ「,」区切り
+  message:
+    created_at_display: から
+    hide_at_display: まで
+    for_only_master: このコメントは管理者のみ閲覧できます
+    deny_show: このコメントは管理者の承認待ちです
+  notice:
+    create: 投稿完了しました
+    update: 更新完了しました
+    destroy: 削除完了しました
+    comment_create: コメント作成完了しました
+    comment_update_admin: コメント管理者更新完了しました
+    comment_destroy: コメント削除完了しました
+    comment_destroy_admin: コメント管理者削除完了しました
+  error:
+    date: 間違った日付です
+    not_found: ページが見つかりませんでした
+    internal_server_error: エラーが発生しました
+    wrong_password: パスワードが違います
+    not_authenticated: ログインしていません
+    contents_empty: 内容が空です

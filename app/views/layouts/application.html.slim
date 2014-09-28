@@ -1,0 +1,39 @@
+doctype html
+html
+	head
+		meta charset='UTF-8'
+		title = (@title and not @title.empty?) ? "#{@title} - #{Settings.title}" : Settings.title
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+	body
+		- if flash.notice
+			p.alert.alert-info = flash.notice
+		- if flash.alert
+			p.alert.alert-error = flash.alert
+		header
+			h1
+				= link_to :controller => :articles, :action => :articles
+					= Settings.title
+				small.on-right = @title
+		nav.navbar
+			ul
+				li
+					= link_to I18n.t('title.articles'), :controller => :articles, :action => :articles, :tag => params[:tag], :date => params[:date]
+				li
+					= link_to I18n.t('title.list'), :controller => :articles, :action => :list, :tag => params[:tag], :date => params[:date]
+				li
+					= link_to I18n.t('title.dates'), :controller => :articles, :action => :dates
+				li
+					= link_to I18n.t('title.tags'), :controller => :articles, :action => :tags
+				- if admin_session
+					li
+						= link_to I18n.t('title.logout'), :controller => :admin_session, :action => :destroy
+					li
+						= link_to I18n.t('title.new'), :controller => :articles, :action => :new
+				- else
+					li
+						= link_to I18n.t('title.login'), :controller => :admin_session, :action => :new
+		= yield
+		footer
+			p nblog

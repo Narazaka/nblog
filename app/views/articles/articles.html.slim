@@ -1,0 +1,17 @@
+- @articles.each do |article|
+	article.article
+		header
+			= render partial: "article_header", locals: {article: article}
+		section.article
+			= render partial: "article_contents", locals: {article: article}
+		aside.comments
+			= link_to :action => :article, :id => article.id
+				= I18n.t 'comment'
+				span.count = article.comments.count
+		- if admin_session
+			aside
+				= render partial: "article_aside", locals: {article: article}
+		footer
+			= render partial: "article_footer", locals: {article: article}
+nav
+	== paginate @articles

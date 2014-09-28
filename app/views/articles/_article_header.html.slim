@@ -1,0 +1,25 @@
+h1
+	= link_to :action => :article, :id => article.id
+		= article.title.empty? ? I18n.t('empty_title') : article.title
+	small.updated_at
+		- action = params[:action] == 'article' ? :list : params[:action]
+		- updated_at_display = article.updated_at_display || article.updated_at
+		span.year
+			= link_to :action => action, :tag => params[:tag], :date => updated_at_display.year.to_s
+				| #{updated_at_display.year}#{I18n.t('datetime.prompts.year')}
+		span.month
+			= link_to :action => action, :tag => params[:tag], :date => updated_at_display.year.to_s + '-' + updated_at_display.month.to_s
+				| #{updated_at_display.month}#{I18n.t('datetime.prompts.month')}
+		span.date
+			= link_to :action => action, :tag => params[:tag], :date => updated_at_display.year.to_s + '-' + updated_at_display.month.to_s + '-' + updated_at_display.day.to_s
+				| #{updated_at_display.day}#{I18n.t('datetime.prompts.day')}
+		span.hour
+			= link_to :action => action, :tag => params[:tag], :date => updated_at_display.year.to_s + '-' + updated_at_display.month.to_s + '-' + updated_at_display.day.to_s + '-' + updated_at_display.hour.to_s
+				| #{updated_at_display.hour}#{I18n.t('datetime.prompts.hour')}
+		span.minute
+			= link_to :action => action, :tag => params[:tag], :date => updated_at_display.year.to_s + '-' + updated_at_display.month.to_s + '-' + updated_at_display.day.to_s + '-' + updated_at_display.hour.to_s + '-' + updated_at_display.min.to_s
+				| #{updated_at_display.min}#{I18n.t('datetime.prompts.minute')}
+		- if article.created_at_display
+			small.created_at = I18n.l(article.created_at_display) + I18n.t('message.created_at_display')
+		- if article.hide_at_display
+			small.hide_at = I18n.l(article.hide_at_display) + I18n.t('message.hide_at_display')

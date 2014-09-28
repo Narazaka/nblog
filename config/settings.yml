@@ -1,0 +1,14 @@
+title: Blog Test
+articles_per_page: 3
+list_per_page: 8
+auto_allow_show_comments: true
+markdown:
+  autolink: true
+  space_after_headers: true
+  no_intra_emphasis: true
+  fenced_code_blocks: true
+  tables: true
+  hard_wrap: true
+  xhtml: false
+  lax_html_blocks: true
+  strikethrough: true
