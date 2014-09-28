@@ -2,6 +2,8 @@ title: Blog Test
 articles_per_page: 3
 list_per_page: 8
 auto_allow_show_comments: true
+i18n:
+  default_locale: ja
 markdown:
   autolink: true
   space_after_headers: true

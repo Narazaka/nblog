@@ -19,7 +19,7 @@ module Nblog
 		# The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
 		# config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 		#config.assets.paths << "#{Rails}/vender/assets/fonts"
-		config.i18n.default_locale = :ja
+		config.i18n.default_locale = Settings.i18n.default_locale
 		config.action_controller.action_on_unpermitted_parameters = :raise
 	end
 end
