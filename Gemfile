@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails', '>= 4.3.1'
 gem 'rails-i18n', '>= 4.0.9'
 gem 'redcarpet', '>= 3.2.3'
-gem 'kaminari', '>= 1.0.1'
+gem 'kaminari', '>= 1.2.1'
 gem 'acts-as-taggable-on', '>= 3.4.2'
 gem 'rails_config', '>= 0.4.2'
 # Use Uglifier as compressor for JavaScript assets
